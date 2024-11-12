@@ -1,8 +1,8 @@
 const config = {
-    protocol: "http",
-    hostname: "localhost",
-    port: 8080,
-    basePath: "",
+    protocol: process.env.REACT_APP_API_PROTOCOL || "http",
+    hostname: process.env.REACT_APP_API_HOSTNAME || "localhost",
+    port: process.env.REACT_APP_API_PORT || 8080,
+    basePath: process.env.REACT_APP_API_BASE_PATH || "",
     endpoints: {
         extractMetadata: "/metadata/extract",
     },
