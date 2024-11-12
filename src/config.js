@@ -4,7 +4,7 @@ const config = {
     port: 8080,
     basePath: "",
     endpoints: {
-        extractMetadata: "/metadata/extract?title=",
+        extractMetadata: "/metadata/extract",
     },
     get baseApiUrl() {
         return `${this.protocol}://${this.hostname}${
