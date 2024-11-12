@@ -14,20 +14,22 @@ const FileUploader = () => {
         }?title=${encodeURIComponent(fileName)}`;
 
         const startTime = Date.now();
+        var endTime = 0;
+        var data;
         try {
             const response = await fetch(apiUrl);
-            const data = await response.json();
-            const endTime = Date.now();
-            const responseTime = endTime - startTime;
-
-            setJsonResponses((prev) => [...prev, { data, responseTime }]);
-            setTotalTime((prevTime) => ({
-                accumulated: prevTime.accumulated + responseTime,
-                total: Date.now() - startTime,
-            }));
+            data = await response.json();
+            endTime = Date.now();
         } catch (error) {
             console.error(`Error fetching metadata for ${fileName}:`, error);
         }
+
+        const responseTime = endTime - startTime;
+        setTotalTime((prevTime) => ({
+            accumulated: prevTime.accumulated + responseTime,
+            total: Date.now() - startTime,
+        }));
+        setJsonResponses((prev) => [...prev, { data, responseTime }]);
     };
 
     const onDrop = useCallback((acceptedFiles) => {
