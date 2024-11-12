@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+# 📚 eBook Metadata Extractor UI
+
+This project is a UI for the eBook Metadata Extractor backend, which is built using **Golang** and the **OpenAI API**. It allows users to drag and drop multiple ebooks to extract metadata from them. For more details on the backend, visit the [backend repository](https://github.com/BLyndon/ebook-metadata-extractor).
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
