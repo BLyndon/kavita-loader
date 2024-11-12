@@ -137,10 +137,18 @@ const JsonResponses = ({ jsonResponses }) => (
                     <span className="response-time-label-style">
                         Response Time {responseObj.responseTime} ms -{" "}
                     </span>
-                    {responseObj.data.Title}
+                    {responseObj.data && responseObj.data.Title ? (
+                        responseObj.data.Title
+                    ) : (
+                        <span className="error-label">No Title Available</span>
+                    )}
                 </h4>
                 <pre className="json-style">
-                    {JSON.stringify(responseObj.data, null, 2)}
+                    {responseObj.data ? (
+                        JSON.stringify(responseObj.data, null, 2)
+                    ) : (
+                        "No data available"
+                    )}
                 </pre>
             </div>
         ))}
